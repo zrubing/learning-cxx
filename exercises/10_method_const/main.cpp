@@ -3,7 +3,13 @@
 struct Fibonacci {
     int numbers[11];
     // TODO: 修改方法签名和实现，使测试通过
-    int get(int i) {
+    // 修改方法签名，添加 const 限定符使其可在常量表达式中使用
+    constexpr int get(int i) const {
+        if (i < 0 || i >= 11) {
+            // 处理越界情况
+            return -1;  // 或者可以抛出异常
+        }
+        return numbers[i];
     }
 };
 
